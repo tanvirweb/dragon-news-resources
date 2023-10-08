@@ -4,3 +4,4 @@
 2. Folder Structure and Router setup
 3. Added shared components
 4. Added MomentJS for display current date
+5. React Marqee for latest news
