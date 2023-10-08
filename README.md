@@ -5,3 +5,4 @@
 3. Added shared components
 4. Added MomentJS for display current date
 5. React Marqee for latest news
+6. Added Navbar
