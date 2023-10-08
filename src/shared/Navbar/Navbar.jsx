@@ -1,12 +1,22 @@
 import { Link, NavLink } from "react-router-dom";
 import avatarDefault from "../../assets/user.png";
+import { useContext } from "react";
+import { ContentAPI } from "../../providers/AuthProvider";
 
 const Navbar = () => {
+    const {user, userLogout} = useContext(ContentAPI);
+
     const navLinks = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/about">About</NavLink></li>
         <li><NavLink to="/career">Career</NavLink></li>
     </>
+
+    const handleLogout = () => {
+        userLogout()
+        .then()
+        .catch(err => console.log(err.message))
+    }
 
     return (
         <div className="navbar bg-base-100">
@@ -29,7 +39,9 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 <img className="w-10" src={avatarDefault} alt="" />
-                <Link to="/login" className="btn">Login</Link>
+                {
+                    user ? <Link onClick={handleLogout} className="btn">Logout</Link> : <Link to="/login" className="btn">Login</Link>
+                }
             </div>
         </div>
     );

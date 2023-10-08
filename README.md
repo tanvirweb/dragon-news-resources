@@ -9,3 +9,5 @@
 7. Implemented right sidebar
 8. Displayed dynamic category on the left sidebar
 9. Created Login and Register page
+10. Content API (AuthProvide.jsx)
+11. User Register, Login, User status

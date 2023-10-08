@@ -1,13 +1,25 @@
 import { Link } from "react-router-dom";
 import Navbar from "../shared/Navbar/Navbar";
+import { useContext } from "react";
+import { ContentAPI } from "../providers/AuthProvider";
 
 const Register = () => {
+    const {userRegister} = useContext(ContentAPI);
+
     const handleRegister = e => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
+        const name = form.get("name");
+        const photo = form.get("photo");
         const email = form.get("email");
         const password = form.get("password");
-        console.log(email, password)
+        console.log(name, photo, email, password);
+
+        userRegister(email, password)
+        .then(result => {
+            console.log(result.user)
+        })
+        .catch(err => console.log(err.message))
     }
 
     return (
